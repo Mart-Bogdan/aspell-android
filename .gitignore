@@ -1,3 +1,8 @@
 /bin/
 /libs/
 /obj/
+/.nb-gradle/profiles/private/
+.gradle/
+.idea/
+*.iml
+build/
