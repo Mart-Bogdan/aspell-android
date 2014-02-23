@@ -7,6 +7,9 @@
         android:label="@string/name"
         android:settingsActivity="se.randomdev.aspellchecker.ASpellCheckerActivity">
     <subtype
-            android:label="@string/subtype"
+            android:label="Swedish"
             android:subtypeLocale="sv"  />
+    <subtype
+            android:label="English"
+            android:subtypeLocale="en"  />
 </spell-checker>

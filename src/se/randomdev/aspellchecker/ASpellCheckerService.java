@@ -32,7 +32,7 @@ public class ASpellCheckerService extends SpellCheckerService
 
 	private static final String DATA = "data";
 	private static final String TAG = ASpellCheckerService.class.getSimpleName();
-	private static final boolean DBG = false;
+	private static final boolean DBG = true;
 	
 	private static final String[] PROJECTION = {
 	                                            Words._ID,
@@ -85,11 +85,12 @@ public class ASpellCheckerService extends SpellCheckerService
 			dataDir.mkdir();
 			AssetManager assets = getAssets();
 			files = assets.list(DATA);
+            Log.d(TAG, "Copying files from assets to dst");
 			for(String file:files)
 			{
 				String dst = dataDir+File.separator+file;
 				try{
-					Log.d(TAG, "Copying "+file+" from assets to "+dst);
+					//Log.d(TAG, "Copying "+file+" from assets to "+dst);
 					
 					FileOutputStream fout = new FileOutputStream(dst);
 					InputStream in = assets.open(DATA+File.separator+file);
@@ -156,7 +157,7 @@ public class ASpellCheckerService extends SpellCheckerService
 			
 			//Log.d(TAG, "User dictionary: "+ Arrays.toString(words.toArray(new String[]{})));
 			
-			bridge.setUserDictionary(words.toArray(new String[]{}));
+//			bridge.setUserDictionary(words.toArray(new String[]{}));
 			cache.clear();
 		}
 		
