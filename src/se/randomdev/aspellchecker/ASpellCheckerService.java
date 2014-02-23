@@ -172,9 +172,12 @@ public class ASpellCheckerService extends SpellCheckerService
 			mLocale = getLocale();
 			
 			Log.d(TAG, "Creating ASpell Speller. DataDir: "+dataDir+" Lang: "+mLocale);
-			
-			sharedBridge = bridge = new ASpell(dataDir,mLocale);
-			
+
+            if(bridge == null)
+			    bridge = new ASpell(dataDir,mLocale);
+            if(sharedBridge == null)
+                sharedBridge = bridge;
+
 			contentResolver.registerContentObserver(Words.CONTENT_URI, true, new ContentObserver(null) {
 			    @Override
 			    public void onChange(boolean selfChange) {
